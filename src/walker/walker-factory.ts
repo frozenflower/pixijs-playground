@@ -1,5 +1,5 @@
-import { Assets, Texture } from "pixi.js";
-import { Walker } from "./walker";
+import { Assets, Texture } from 'pixi.js';
+import { Walker } from './walker';
 
 export class WalkerFactory {
     private textures: Record<string, Texture> | undefined;
@@ -8,8 +8,10 @@ export class WalkerFactory {
 
     async createWalker() {
         if (!this.textures) {
-            const files = Array.from({length: 8}, (_, i) => i + 1).map(x => `Walking/Walking_000${x}.png`);
-    
+            const files = Array.from({ length: 8 }, (_, i) => i + 1).map(
+                (x) => `Walking/Walking_000${x}.png`
+            );
+
             this.textures = await Assets.load(files);
         }
 
